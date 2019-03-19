@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Opa tests for UI5</title>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge' />
+		<meta charset="UTF-8">
+
+		<script id="sap-ui-bootstrap"
+				src="../../resources/sap-ui-core.js"
+				data-sap-ui-resourceroots='{
+					"UI5.test.integration": "./",
+					"UI5.app" : "../flpSandboxMockServer"
+				}'>
+		</script>
+
+		<script>
+			jQuery.sap.require("UI5.test.integration.AllJourneys");
+		</script>
+
+	</head>
+	<body>
+		<div id="qunit"></div>
+		<div id="qunit-fixture"></div>
+	</body>
+</html>

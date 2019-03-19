@@ -1,0 +1,112 @@
+<mvc:View controllerName="UI5.controller.CreateEntity" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:smart="sap.ui.comp.smartfield" xmlns="sap.m">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" title="{viewModel>/viewTitle}" busy="{viewModel>/busy}">
+		<semantic:content>
+			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm"
+				labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024"
+				title="{= ${viewModel>/mode} === 'edit'? 'Edit YVEGUI0004_SRV_01.YEGUI0004_STR': 'New YVEGUI0004_SRV_01.YEGUI0004_STR'}">
+				<f:content>
+					<Label text="Company Code" required="true"/>
+					<Input name="Bukrs" id="Bukrs_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Bukrs', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:4, nullable:false } }"/>
+					<Label text="Fiscal Year" required="true"/>
+					<Input name="Gjahr" id="Gjahr_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Gjahr', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:4, nullable:false } }"/>
+					<Label text="Document Number" required="true"/>
+					<Input name="Belnr" id="Belnr_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Belnr', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:10, nullable:false } }"/>
+					<Label text="Line item" required="true"/>
+					<Input name="Buzei" id="Buzei_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Buzei', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:6, nullable:false } }"/>
+					<Label text="Billing Doc." required="true"/>
+					<Input name="Vbeln" id="Vbeln_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Vbeln', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:10, nullable:false } }"/>
+					<Label text="Billing Type" required="true"/>
+					<Input name="Fkart" id="Fkart_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Fkart', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:4, nullable:false } }"/>
+					<Label text="GUI Date" required="true"/>
+					<DatePicker name="Guidate" value="{ path: 'Guidate', type: 'sap.ui.model.type.DateTime'}" id="Guidate_id" type="DateTime"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"/>
+					<Label text="Posting Date" required="true"/>
+					<DatePicker name="Budat" value="{ path: 'Budat', type: 'sap.ui.model.type.DateTime'}" id="Budat_id" type="DateTime"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"/>
+					<Label text="Apply Period" required="true"/>
+					<Input name="Guiperio" id="Guiperio_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Guiperio', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:6, nullable:false } }"/>
+					<Label text="GUI Format" required="true"/>
+					<Input name="Guifmt" id="Guifmt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Guifmt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:2, nullable:false } }"/>
+					<Label text="Invoice number" required="true"/>
+					<Input name="Guino" id="Guino_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Guino', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:14, nullable:false } }"/>
+					<Label text="Business place" required="true"/>
+					<Input name="Bupla" id="Bupla_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Bupla', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:4, nullable:false } }"/>
+					<Label text="Customer" required="true"/>
+					<Input name="Kunnr" id="Kunnr_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Kunnr', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:10, nullable:false } }"/>
+					<Label text="Buyer Reg." required="true"/>
+					<Input name="Buyscd" id="Buyscd_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Buyscd', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:8, nullable:false } }"/>
+					<Label text="Name of buyer" required="true"/>
+					<Input name="Buyname1" id="Buyname1_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Buyname1', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:70, nullable:false } }"/>
+					<Label text="Base amount" required="true"/>
+					<Input name="Basamt" id="Basamt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Basamt', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:14, scale:3, nullable:false } }"/>
+					<Label text="Tax amount" required="true"/>
+					<Input name="Taxamt" id="Taxamt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Taxamt', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:14, scale:3, nullable:false } }"/>
+					<Label text="Tax type" required="true"/>
+					<Input name="Taxtyp" id="Taxtyp_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Taxtyp', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:1, nullable:false } }"/>
+					<Label text="Tax Code" required="true"/>
+					<Input name="Mwskz" id="Mwskz_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Mwskz', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:2, nullable:false } }"/>
+					<Label text="Currency" required="true"/>
+					<Input name="Waers" id="Waers_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Waers', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:5, nullable:false } }"/>
+					<Label text="Counter" required="true"/>
+					<Input name="Cnt" id="Cnt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Cnt', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:10, scale:0, nullable:false } }"/>
+					<Label text="Seller Name" required="true"/>
+					<Input name="Salname1" id="Salname1_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Salname1', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:70, nullable:false } }"/>
+					<Label text="Indicator" required="true"/>
+					<CheckBox name="Sel" selected="{ path: 'Sel'}" id="Sel_id" enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"/>
+					<Label text="Account Memo" required="true"/>
+					<Input name="Kverm" id="Kverm_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Kverm', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:30, nullable:false } }"/>
+				</f:content>
+			</f:SimpleForm>
+		</semantic:content>
+		<semantic:saveAction>
+			<semantic:SaveAction id="save" enabled="{viewModel>/enableCreate}" press="onSave"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancel" press="onCancel"></semantic:CancelAction>
+		</semantic:cancelAction>
+	</semantic:DetailPage>
+</mvc:View>
