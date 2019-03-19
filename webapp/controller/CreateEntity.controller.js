@@ -7,7 +7,7 @@ sap.ui.define([
 	"use strict";
 
 	return BaseController.extend("UI5.controller.CreateEntity", {
-
+//TEST mod
 		_oBinding: {},
 
 		/* =========================================================== */
